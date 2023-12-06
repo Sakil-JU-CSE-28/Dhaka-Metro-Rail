@@ -1,6 +1,6 @@
 *This project is for learning software Quality Assurance with hands-on experience.*
 
-It's a team work and we follow Agile technique to do the project. All the necessary infromation related to this project is
+It's a team work and we follow Agile technique to do the project. All the necessary information related to this project is
 available on wiki.
 
 # Initial Idea
