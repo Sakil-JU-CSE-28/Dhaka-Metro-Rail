@@ -1,5 +1,6 @@
 *This project is for learning software Quality Assurance with hands-on experience.*
-
+It's a team work and we follow Agile technique to do the project. All the necessary infromation related to this project is
+available on wiki.
 # Initial Idea
 It's an android application which will performe some basic but useful task when all station of dhaka-metro will be opened.
 By using this app one can find useful information about each of the station of dhaka metro rail. The most attractive feature
