@@ -7,16 +7,25 @@ import java.util.Scanner;
 import java.util.Set;
 
 /**
- * This class is for accessing all the stations from the
- * existing text file by calling a method
+ * This class is for accessing all the stations and metro information from the existing text files by calling respective methods.
  */
 public class StationExtractor {
     private Resources resources;
 
+    /**
+     * Constructor for StationExtractor class.
+     *
+     * @param resources The Resources object used to access app resources.
+     */
     public StationExtractor(Resources resources) {
         this.resources = resources;
     }
 
+    /**
+     * Retrieve a set of all the stations from the text file.
+     *
+     * @return A set containing the names of all stations.
+     */
     public Set<String> getStations(){
         Set<String> stations = new HashSet<>();
         InputStream inputStream = resources.openRawResource(R.raw.stations);
@@ -36,5 +45,21 @@ public class StationExtractor {
             stations.add(cur);
         }
         return  stations;
+    }
+
+    /**
+     * Retrieve a set of all the metro information from the text file.
+     *
+     * @return A set containing the metro information.
+     */
+    public Set<String> getMetro(){
+        Set<String> metro = new HashSet<>();
+        InputStream inputStream = resources.openRawResource(R.raw.metro);
+        Scanner scanner = new Scanner(inputStream);
+        while (scanner.hasNext()) {
+            String token = scanner.next(); // Tokenizing by words
+            metro.add(token);
+        }
+        return metro;
     }
 }
