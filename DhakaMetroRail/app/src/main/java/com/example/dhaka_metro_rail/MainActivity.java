@@ -92,7 +92,13 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                // to do
+                /**
+                 * Navigates from the MainActivity to the ViewStations activity.
+                 * This method starts the ViewStations activity, allowing the user to view
+                 * and do some operation with stations.
+                 */
+                Intent intent = new Intent(MainActivity.this,ViewStations.class);
+                startActivity(intent);
             }
         });
 
