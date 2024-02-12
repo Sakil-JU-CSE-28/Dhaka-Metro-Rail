@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                // to do
+                Intent intent = new Intent(MainActivity.this, ViewMetro.class);
+                startActivity(intent);
             }
         });
 
