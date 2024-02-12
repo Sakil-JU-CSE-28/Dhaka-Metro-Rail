@@ -2,6 +2,7 @@ package com.example.dhaka_metro_rail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,7 +54,12 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                // To do
+                /**
+                 * Navigates from the MainActivity to the BuyTicket activity.
+                 * This method starts the BuyTicket activity, allowing the user to buy tickets.
+                 */
+                Intent intent = new Intent(MainActivity.this, BuyTicket.class);
+                startActivity(intent);
             }
         });
 
