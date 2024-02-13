@@ -44,6 +44,7 @@ public class StationExtractor {
             }
             stations.add(cur);
         }
+        scanner.close();
         return  stations;
     }
 
@@ -57,9 +58,12 @@ public class StationExtractor {
         InputStream inputStream = resources.openRawResource(R.raw.metro);
         Scanner scanner = new Scanner(inputStream);
         while (scanner.hasNext()) {
-            String token = scanner.next(); // Tokenizing by words
-            metro.add(token);
+            String token = scanner.next();
+            if(!token.isEmpty()){
+                metro.add(token);
+            }
         }
+        scanner.close();
         return metro;
     }
 }
