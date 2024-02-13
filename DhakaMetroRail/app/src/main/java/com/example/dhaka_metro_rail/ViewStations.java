@@ -1,10 +1,15 @@
 package com.example.dhaka_metro_rail;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Set;
 
@@ -28,22 +33,54 @@ public class ViewStations extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_stations);
-        // Get the TextView from the layout
-        TextView textViewStations = findViewById(R.id.textViewStations);
-
         // Get the stations from the StationExtractor class
         StationExtractor stationExtractor = new StationExtractor(getResources());
         Set<String> stations = stationExtractor.getStations();
+        // Get the container LinearLayout from the layout
+        LinearLayout container = findViewById(R.id.containerStation);
 
-        // Create a StringBuilder to construct the text
-        StringBuilder stringBuilder = new StringBuilder();
+        // Iterate through each metro item
+        for (String item : stations) {
+            // Create a new CardView
+            CardView cardView = new CardView(this);
+            // Set layout parameters for the CardView
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            layoutParams.setMargins(16, 16, 16, 16);
+            cardView.setLayoutParams(layoutParams);
 
-        // Append each station to the StringBuilder
-        for (String station : stations) {
-            stringBuilder.append(station).append("\n");
+            // Create a new TextView to display the metro item
+            TextView textView = new TextView(this);
+            // Set layout parameters for the TextView
+            textView.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            ));
+            // Set the text of the TextView to the current metro item
+            textView.setText(item);
+            // Add padding to the TextView
+            textView.setPadding(16, 16, 16, 16);
+            // Center the text within the TextView
+            textView.setGravity(Gravity.CENTER);
+
+            // Add the TextView to the CardView
+            cardView.addView(textView);
+            // Add the CardView to the container LinearLayout
+            container.addView(cardView);
+
+            // Set OnClickListener for the CardView
+            cardView.setTag(item); // Set tag as item
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Retrieve clicked item from tag
+                    String clickedItem = (String) v.getTag();
+                    // Display a Toast message with the clicked item
+                    Toast.makeText(ViewStations.this, "Clicked: " + clickedItem, Toast.LENGTH_SHORT).show();
+                }
+            });
         }
-
-        // Set the text of the TextView to the constructed string
-        textViewStations.setText(stringBuilder.toString());
     }
 }
