@@ -61,7 +61,7 @@ Mirpur10-Mirpur11
 Mirpur11-Pallabi
 Pallabi-UttaraSouth
 UttaraSouth-Uttaracenter
-Uttaracenter-Uttara North
+Uttaracenter-UttaraNorth
 Mirpur10-Mirpur1
 Mirpur1-DarUsSalam
 Mirpur10-Kazipara
