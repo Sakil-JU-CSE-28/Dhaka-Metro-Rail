@@ -2,11 +2,21 @@ package com.example.dhaka_metro_rail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.Vector;
 
 /**
  * This class represents an activity for displaying the calculation of minimum time required.
@@ -14,6 +24,7 @@ import android.widget.Spinner;
 public class MinTime extends AppCompatActivity {
 
     private String sourceStation,destinationStation;
+    Resources resources;
 
     /**
      * Called when the activity is starting. This is where most initialization should go.
@@ -84,8 +95,134 @@ public class MinTime extends AppCompatActivity {
         btnMinTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  //todo
+                //create map for keep track of stationName with station
+                Map<String,Station>stationDetector = new HashMap<>();
+                // to store stations
+                Set<Station>stations = new HashSet<>();
+                // retrive stations from txt file using model class
+                StationExtractor stationExtractor = new StationExtractor(resources);
+                Set<String>stationsName = stationExtractor.getStations();
+                // initialize stationdetector and stations
+                for(String stationname : stationsName){
+                    Station station = new Station();
+                    stationDetector.put(stationname,station);
+                    stations.add(station);
+                }
+                // create adjacency list
+                AdjacencyListCreator adjacencyListCreator = new AdjacencyListCreator();
+                Map<Station, Vector<Station>>adjacencyList = adjacencyListCreator.getAdjacencyList(stationDetector);
+                for(Station startStation : stations){
+                    for(Station endStation : adjacencyList.get(startStation)){
+                        startStation.addDestination(endStation,getRandomTime());
+                    }
+                }
+                // create a graph
+                Graph graph = new Graph();
+                // add station to graph
+                for(Station station : stations){
+                    graph.addNode(station);
+                }
+                // calculate shortest path
+                graph = calculateShortestPathFromSource(graph,stationDetector.get(sourceStation));
+
+                StringBuilder stationList = new StringBuilder();
+                for(Station station : graph.getNodes()){
+                   stationDetector.put(station.getName(),station);
+                }
+
+                for(Station station : stationDetector.get(destinationStation).getShortestPath()){
+                    stationList.append(station.getName() + "\n");
+                }
+
+                String minDist = "Min distance = ";
+                minDist += stationDetector.get(destinationStation).getDistance().toString();
+                stationList.append(minDist);
+
+                TextView textView = findViewById(R.id.belowCardTextView);
+                textView.setText(minDist);
+            }
+
+
+            /**
+             * for getting random time
+             * @return
+             */
+            public  int getRandomTime(){
+                int min = 1;
+                int max = 5;
+                Random random = new Random();
+                int randomNumber = random.nextInt(max - min + 1) + min;
+                return randomNumber;
             }
         });
+    }
+
+    /**
+     * Calculates the shortest path from a given source station in the graph.
+     *
+     * @param graph  The graph containing stations and their connections.
+     * @param source The starting station for calculating the shortest path.
+     * @return The graph with updated shortest paths from the source station.
+     */
+
+    public static Graph calculateShortestPathFromSource(Graph graph, Station source) {
+        source.setDistance(0);
+
+        Set<Station> settledNodes = new HashSet<>();
+        Set<Station> unsettledNodes = new HashSet<>();
+
+        unsettledNodes.add(source);
+
+        while (unsettledNodes.size() != 0) {
+            Station currentNode = getLowestDistanceNode(unsettledNodes);
+            unsettledNodes.remove(currentNode);
+            for (Map.Entry< Station, Integer> adjacencyPair:
+                    currentNode.getAdjacentNodes().entrySet()) {
+                Station adjacentNode = adjacencyPair.getKey();
+                Integer edgeWeight = adjacencyPair.getValue();
+                if (!settledNodes.contains(adjacentNode)) {
+                    CalculateMinimumDistance(adjacentNode, edgeWeight, currentNode);
+                    unsettledNodes.add(adjacentNode);
+                }
+            }
+            settledNodes.add(currentNode);
+        }
+        return graph;
+    }
+    /**
+     * Returns the node with the lowest distance from a set of unsettled nodes.
+     *
+     * @param unsettledNodes The set of nodes whose distances are to be evaluated.
+     * @return The node with the lowest distance among the unsettled nodes.
+     */
+    private static Station getLowestDistanceNode(Set < Station > unsettledNodes) {
+        Station lowestDistanceNode = null;
+        int lowestDistance = Integer.MAX_VALUE;
+        for (Station node: unsettledNodes) {
+            int nodeDistance = node.getDistance();
+            if (nodeDistance < lowestDistance) {
+                lowestDistance = nodeDistance;
+                lowestDistanceNode = node;
+            }
+        }
+        return lowestDistanceNode;
+    }
+
+    /**
+     * Calculates the minimum distance for an evaluation node from the source node.
+     *
+     * @param evaluationNode The node whose distance is being evaluated.
+     * @param edgeWeight     The weight of the edge connecting the evaluation node with the source node.
+     * @param sourceNode     The source node from which the evaluation node is being evaluated.
+     */
+    private static void CalculateMinimumDistance(Station evaluationNode,
+                                                 Integer edgeWeigh, Station sourceNode) {
+        Integer sourceDistance = sourceNode.getDistance();
+        if (sourceDistance + edgeWeigh < evaluationNode.getDistance()) {
+            evaluationNode.setDistance(sourceDistance + edgeWeigh);
+            LinkedList<Station> shortestPath = new LinkedList<>(sourceNode.getShortestPath());
+            shortestPath.add(sourceNode);
+            evaluationNode.setShortestPath(shortestPath);
+        }
     }
 }
