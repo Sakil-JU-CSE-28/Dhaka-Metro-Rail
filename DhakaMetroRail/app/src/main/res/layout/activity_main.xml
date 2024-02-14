@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="50dp"
         android:background="#3F51B5"
         android:elevation="4dp"
         app:title="Metro Rail Services"
@@ -22,7 +22,7 @@
     <Button
         android:id="@+id/btnBuyTicket"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:background="@drawable/button_background"
         android:text="Buy Ticket"
         android:textSize="20sp"
@@ -37,7 +37,7 @@
     <Button
         android:id="@+id/btnInDanger"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:background="@drawable/button_background"
         android:text="In Danger"
         android:textSize="20sp"
@@ -53,7 +53,7 @@
     <Button
         android:id="@+id/btnViewMetro"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:background="@drawable/button_background"
         android:text="View Metro"
         android:textSize="20sp"
@@ -68,7 +68,7 @@
     <Button
         android:id="@+id/btnViewStations"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:background="@drawable/button_background"
         android:text="View Stations"
         android:textSize="20sp"
@@ -84,7 +84,7 @@
     <Button
         android:id="@+id/btnMinTime"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:background="@drawable/button_background"
         android:text="Travel in Min Time"
         android:textSize="20sp"
@@ -99,7 +99,7 @@
     <Button
         android:id="@+id/btnMinCost"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:background="@drawable/button_background"
         android:text="Travel in Min Cost"
         android:textSize="20sp"
@@ -115,7 +115,7 @@
     <Button
         android:id="@+id/btnSearchFriend"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:background="@drawable/button_background"
         android:text="Search Friend"
         android:textSize="20sp"
@@ -130,7 +130,7 @@
     <Button
         android:id="@+id/btnLogIn"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
         android:background="@drawable/button_background"
         android:text="Log In"
         android:textSize="20sp"
@@ -141,5 +141,14 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="4dp"
         android:onClick="onOptionClicked"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#3F51B5"
+        app:menu="@menu/bottom_nab_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
