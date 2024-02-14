@@ -33,6 +33,7 @@
 <androidx.cardview.widget.CardView
     android:layout_width="0dp"
     android:layout_height="wrap_content"
+    android:id="@+id/cardView"
     app:layout_constraintTop_toBottomOf="@id/imageView"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
@@ -110,6 +111,19 @@ android:layout_height="wrap_content">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/belowCardTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/cardView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:gravity="center"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigationView"
