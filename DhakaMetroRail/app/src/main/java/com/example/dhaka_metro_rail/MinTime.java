@@ -142,18 +142,6 @@ public class MinTime extends AppCompatActivity {
                 textView.setText(minDist);
             }
 
-
-            /**
-             * for getting random time
-             * @return
-             */
-            public  int getRandomTime(){
-                int min = 1;
-                int max = 5;
-                Random random = new Random();
-                int randomNumber = random.nextInt(max - min + 1) + min;
-                return randomNumber;
-            }
         });
     }
 
@@ -224,5 +212,17 @@ public class MinTime extends AppCompatActivity {
             shortestPath.add(sourceNode);
             evaluationNode.setShortestPath(shortestPath);
         }
+    }
+
+    /**
+     * for getting random time
+     * @return
+     */
+    public  int getRandomTime(){
+        int min = 1;
+        int max = 5;
+        Random random = new Random();
+        int randomNumber = random.nextInt(max - min + 1) + min;
+        return randomNumber;
     }
 }

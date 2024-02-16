@@ -142,17 +142,7 @@ public class MinCost extends AppCompatActivity {
                 textView.setText(minDist);
 
             }
-            /**
-             * for getting random time
-             * @return
-             */
-            public  int getRandomTime(){
-                int min = 10;
-                int max = 50;
-                Random random = new Random();
-                int randomNumber = random.nextInt(max - min + 1) + min;
-                return randomNumber;
-            }
+
         });
     }
 
@@ -194,7 +184,7 @@ public class MinCost extends AppCompatActivity {
      * @param unsettledNodes The set of nodes whose distances are to be evaluated.
      * @return The node with the lowest distance among the unsettled nodes.
      */
-    private static Station getLowestDistanceNode(Set < Station > unsettledNodes) {
+    public static Station getLowestDistanceNode(Set < Station > unsettledNodes) {
         Station lowestDistanceNode = null;
         int lowestDistance = Integer.MAX_VALUE;
         for (Station node: unsettledNodes) {
@@ -214,7 +204,7 @@ public class MinCost extends AppCompatActivity {
      * @param edgeWeight     The weight of the edge connecting the evaluation node with the source node.
      * @param sourceNode     The source node from which the evaluation node is being evaluated.
      */
-    private static void CalculateMinimumDistance(Station evaluationNode,
+    public static void CalculateMinimumDistance(Station evaluationNode,
                                                  Integer edgeWeigh, Station sourceNode) {
         Integer sourceDistance = sourceNode.getDistance();
         if (sourceDistance + edgeWeigh < evaluationNode.getDistance()) {
@@ -223,5 +213,18 @@ public class MinCost extends AppCompatActivity {
             shortestPath.add(sourceNode);
             evaluationNode.setShortestPath(shortestPath);
         }
+    }
+
+    /**
+     * for getting random time
+     * @return
+     */
+
+    public  int getRandomTime(){
+        int min = 10;
+        int max = 50;
+        Random random = new Random();
+        int randomNumber = random.nextInt(max - min + 1) + min;
+        return randomNumber;
     }
 }
