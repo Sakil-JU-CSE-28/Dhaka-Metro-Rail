@@ -14,7 +14,11 @@ import android.widget.Toast;
  * This activity allows users to purchase tickets for the metro rail service.
  */
 public class BuyTicket extends AppCompatActivity {
-    private String ticketType,ticketQuantity;
+    private DatabaseHelper db;
+    private Spinner spinnerTicketType;
+    private Spinner spinnerTicketQuantity;
+    private Spinner spinnerStartingStation;
+    private Spinner spinnerEndingStation;
     /**
      * Called when the activity is starting.
      *
@@ -34,81 +38,6 @@ public class BuyTicket extends AppCompatActivity {
          */
 
         setContentView(R.layout.activity_buy_ticket);
-        /***
-         * This section is for ticket type spinner
-         */
-        // Initialize the spinner by finding its reference in the layout
-        Spinner spinner = findViewById(R.id.spinnerTicketType);
-
-        // Set a listener to handle item selection events on the spinner
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            /**
-             * Called when an item in the spinner is selected.
-             *
-             * @param parentView The AdapterView where the selection happened.
-             * @param selectedItemView The view within the AdapterView that was clicked.
-             * @param position The position of the view in the adapter.
-             * @param id The row id of the item that is selected.
-             */
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Get the selected ticket type from the spinner and store it
-                ticketType = parentView.getItemAtPosition(position).toString();
-
-                // Display a toast message showing the selected ticket type
-                Toast.makeText(getApplicationContext(), "Selected Ticket Type: " + ticketType, Toast.LENGTH_SHORT).show();
-            }
-
-            /**
-             * Called when the selection disappears from this view. The selection can
-             * disappear for instance when touch is activated or when the adapter becomes empty.
-             *
-             * @param parentView The AdapterView that now contains no selected item.
-             */
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // Set the ticket type to "NULL" when nothing is selected
-                ticketType = "NULL";
-            }
-        });
-
-        /***
-         * This section is for ticket quantity spinner
-         */
-        // Initialize the spinner by finding its reference in the layout
-        Spinner spinnerTicetQuantity = findViewById(R.id.spinnerTicketQuantity);
-
-        // Set a listener to handle item selection events on the spinner
-        spinnerTicetQuantity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            /**
-             * Called when an item in the spinner is selected.
-             *
-             * @param parentView The AdapterView where the selection happened.
-             * @param selectedItemView The view within the AdapterView that was clicked.
-             * @param position The position of the view in the adapter.
-             * @param id The row id of the item that is selected.
-             */
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Get the selected ticket type from the spinner and store it
-                ticketQuantity = parentView.getItemAtPosition(position).toString();
-
-                // Display a toast message showing the selected ticket type
-                Toast.makeText(getApplicationContext(), "Selected Ticket Type: " + ticketQuantity, Toast.LENGTH_SHORT).show();
-            }
-
-            /**
-             * Called when the selection disappears from this view. The selection can
-             * disappear for instance when touch is activated or when the adapter becomes empty.
-             *
-             * @param parentView The AdapterView that now contains no selected item.
-             */
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // Set the ticket type to "NULL" when nothing is selected
-                ticketQuantity = "NULL";
-            }
-        });
 
         /**
          * this section is for handling event when purchase button is pressed
@@ -123,9 +52,69 @@ public class BuyTicket extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                // to do
+
+                spinnerTicketType = findViewById(R.id.spinnerTicketType);
+                spinnerTicketQuantity = findViewById(R.id.spinnerTicketQuantity);
+                spinnerStartingStation = findViewById(R.id.spinnerStartingStation);
+                spinnerEndingStation = findViewById(R.id.spinnerEndingStation);
+                String selectedTicketType = spinnerTicketType.getSelectedItem().toString();
+                int selectedTicketQuantity = Integer.parseInt(spinnerTicketQuantity.getSelectedItem().toString());
+                String selectedStartingStation = spinnerStartingStation.getSelectedItem().toString();
+                String selectedEndingStation = spinnerEndingStation.getSelectedItem().toString();
+                db = db = new DatabaseHelper(getApplicationContext());
+                db.addTicket(selectedTicketType,selectedTicketQuantity,selectedStartingStation,selectedEndingStation);
+                Toast.makeText(getApplicationContext(), "Purchase successful", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+
+    /**
+     * setter methods for the spinner
+     * @param spinnerTicketType
+     */
+    public void setSpinnerTicketType(Spinner spinnerTicketType) {
+        this.spinnerTicketType = spinnerTicketType;
+    }
+
+    public Spinner getSpinnerTicketQuantity() {
+        return spinnerTicketQuantity;
+    }
+
+    public void setSpinnerTicketQuantity(Spinner spinnerTicketQuantity) {
+        this.spinnerTicketQuantity = spinnerTicketQuantity;
+    }
+
+    public Spinner getSpinnerStartingStation() {
+        return spinnerStartingStation;
+    }
+
+    public void setSpinnerStartingStation(Spinner spinnerStartingStation) {
+        this.spinnerStartingStation = spinnerStartingStation;
+    }
+
+    public Spinner getSpinnerEndingStation() {
+        return spinnerEndingStation;
+    }
+
+    public void setSpinnerEndingStation(Spinner spinnerEndingStation) {
+        this.spinnerEndingStation = spinnerEndingStation;
+    }
+
+    /**
+     * getter method for the spinner
+     * @return
+     */
+    public Spinner getSelectedTicketType() {
+        return spinnerTicketType;
+    }
+   public Spinner getSelectedTicketQuantity(){
+        return spinnerTicketQuantity;
+   }
+    public Spinner getSelectedStartingStation(){
+        return spinnerStartingStation;
+    }
+    public Spinner getSelectedEndingStation(){
+        return spinnerEndingStation;
     }
 }
