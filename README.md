@@ -19,3 +19,9 @@ problem. I developed the appliction in android studio with java programming lang
 2. Add a branch with understandable name
 3. Push the project
 4. Create a pull request
+
+# App Interface
+![home](https://github.com/Sakil-JU-CSE-28/Dhaka-Metro-Rail/assets/50700465/280b2095-e570-421a-93f0-0d9756a16342)
+![![buy](https://github.com/Sakil-JU-CSE-28/Dhaka-Metro-Rail/assets/50700465/0ccc2b82-dc64-4c96-b865-6293529f63da)
+![mincost](https://github.com/Sakil-JU-CSE-28/Dhaka-Metro-Rail/assets/50700465/b0d7a8ca-9edd-4c28-889d-b93fe7a236d6)
+![viwstation](https://github.com/Sakil-JU-CSE-28/Dhaka-Metro-Rail/assets/50700465/9a157880-5402-419e-ba3b-b45955208d09)
