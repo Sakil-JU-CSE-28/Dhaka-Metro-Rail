@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
                  * Navigates from the MainActivity to the BuyTicket activity.
                  * This method starts the BuyTicket activity, allowing the user to buy tickets.
                  */
-                Intent intent = new Intent(MainActivity.this, BuyTicket.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, BuyTicket.class);
+//                startActivity(intent);
             }
         });
 
@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ViewMetroRail.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, ViewMetroRail.class);
+//                startActivity(intent);
             }
         });
 
@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(MainActivity.this, MinCost.class);
-               startActivity(intent);
+//               Intent intent = new Intent(MainActivity.this, MinCost.class);
+//               startActivity(intent);
             }
         });
 
@@ -131,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(MainActivity.this, MinTime.class);
-               startActivity(intent);
+//               Intent intent = new Intent(MainActivity.this, MinTime.class);
+//               startActivity(intent);
             }
         });
 

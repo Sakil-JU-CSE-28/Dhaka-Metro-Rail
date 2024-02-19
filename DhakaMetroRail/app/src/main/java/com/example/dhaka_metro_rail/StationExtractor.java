@@ -48,22 +48,9 @@ public class StationExtractor {
         return  stations;
     }
 
-    /**
-     * Retrieve a set of all the metro information from the text file.
-     *
-     * @return A set containing the metro information.
-     */
-    public Set<String> getMetro(){
-        Set<String> metro = new HashSet<>();
-        InputStream inputStream = resources.openRawResource(R.raw.metro);
-        Scanner scanner = new Scanner(inputStream);
-        while (scanner.hasNext()) {
-            String token = scanner.next();
-            if(!token.isEmpty()){
-                metro.add(token);
-            }
-        }
-        scanner.close();
-        return metro;
+    public void addFeedBack(String txt,String name){
+        Station station = new Station();
+        station.setName(name);
+        station.addComment(txt);
     }
 }

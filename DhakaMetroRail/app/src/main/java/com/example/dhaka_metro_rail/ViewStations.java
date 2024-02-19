@@ -3,6 +3,7 @@ package com.example.dhaka_metro_rail;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -29,6 +30,7 @@ public class ViewStations extends AppCompatActivity {
      *     being shut down then this Bundle contains the data it most recently supplied in
      *     onSaveInstanceState(Bundle). Note: Otherwise it is null.
      */
+   public String clickedItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,11 +78,16 @@ public class ViewStations extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     // Retrieve clicked item from tag
-                    String clickedItem = (String) v.getTag();
-                    // Display a Toast message with the clicked item
-                    Toast.makeText(ViewStations.this, "Clicked: " + clickedItem, Toast.LENGTH_SHORT).show();
+                    clickedItem = (String) v.getTag();
+                    Intent intent = new Intent(ViewStations.this, AddFeedBack.class);
+                    startActivity(intent);
                 }
             });
         }
+    }
+
+    public void addFeedBack(String txt){
+             StationExtractor stationExtractor = new StationExtractor(getResources());
+             stationExtractor.addFeedBack(txt,clickedItem);
     }
 }

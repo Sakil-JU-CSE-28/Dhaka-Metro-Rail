@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class Station {
     private String name;
-
+    private List<String>comments;
     private List<Station> shortestPath = new LinkedList<>();
 
     private Integer distance = Integer.MAX_VALUE;
@@ -59,5 +59,8 @@ public class Station {
 
     public void setAdjacentNodes(Map<Station, Integer> adjacentNodes) {
         this.adjacentNodes = adjacentNodes;
+    }
+    public addComment(String txt){
+        comments.add(txt);
     }
 }
