@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ViewMetroRail.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, ViewMetroRail.class);
+//                startActivity(intent);
             }
         });
 
@@ -103,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
                  * This method starts the ViewStations activity, allowing the user to view
                  * and do some operation with stations.
                  */
-                Intent intent = new Intent(MainActivity.this,ViewStations.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this,ViewStations.class);
+//                startActivity(intent);
             }
         });
 
@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(MainActivity.this, MinCost.class);
-               startActivity(intent);
+//               Intent intent = new Intent(MainActivity.this, MinCost.class);
+//               startActivity(intent);
             }
         });
 
@@ -131,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(MainActivity.this, MinTime.class);
-               startActivity(intent);
+//               Intent intent = new Intent(MainActivity.this, MinTime.class);
+//               startActivity(intent);
             }
         });
 

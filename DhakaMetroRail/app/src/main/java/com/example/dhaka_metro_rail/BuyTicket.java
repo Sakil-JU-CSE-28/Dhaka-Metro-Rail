@@ -14,7 +14,7 @@ import android.widget.Toast;
  * This activity allows users to purchase tickets for the metro rail service.
  */
 public class BuyTicket extends AppCompatActivity {
-    private DatabaseHelper db;
+    private BuyTicketDbController db;
     private Spinner spinnerTicketType;
     private Spinner spinnerTicketQuantity;
     private Spinner spinnerStartingStation;
@@ -61,7 +61,8 @@ public class BuyTicket extends AppCompatActivity {
                 int selectedTicketQuantity = Integer.parseInt(spinnerTicketQuantity.getSelectedItem().toString());
                 String selectedStartingStation = spinnerStartingStation.getSelectedItem().toString();
                 String selectedEndingStation = spinnerEndingStation.getSelectedItem().toString();
-                db = db = new DatabaseHelper(getApplicationContext());
+                db = new BuyTicketDbController();
+                db.context = getApplicationContext();
                 db.addTicket(selectedTicketType,selectedTicketQuantity,selectedStartingStation,selectedEndingStation);
                 Toast.makeText(getApplicationContext(), "Purchase successful", Toast.LENGTH_SHORT).show();
             }
