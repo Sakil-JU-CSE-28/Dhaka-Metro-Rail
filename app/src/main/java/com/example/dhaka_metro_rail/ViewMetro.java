@@ -19,9 +19,9 @@ public class ViewMetro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_metro);
         // Create an instance of StationExtractor to extract metro information
-        StationExtractor stationExtractor = new StationExtractor(getResources());
+        MetroExtractor extractor = new MetroExtractor();
         // Retrieve metro information using StationExtractor
-        Set<String> metros = stationExtractor.getMetro();
+        Set<String> metros = extractor.getMetros(getApplicationContext(),R.raw.metro);
 
         // Create a StringBuilder to construct the text
         StringBuilder stringBuilder = new StringBuilder();

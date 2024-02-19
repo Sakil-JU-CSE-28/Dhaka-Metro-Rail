@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
                  * Navigates from the MainActivity to the BuyTicket activity.
                  * This method starts the BuyTicket activity, allowing the user to buy tickets.
                  */
-                Intent intent = new Intent(MainActivity.this, BuyTicket.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, BuyTicket.class);
+//                startActivity(intent);
             }
         });
 
@@ -98,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
                  * This method starts the ViewStations activity, allowing the user to view
                  * and do some operation with stations.
                  */
-                Intent intent = new Intent(MainActivity.this,ViewStations.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this,ViewStations.class);
+//                startActivity(intent);
             }
         });
 
