@@ -6,12 +6,32 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
  * model class for metro
  */
 public class Metro {
+    private String name;
+    private List<String> comments;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<String> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<String> comments) {
+        this.comments = comments;
+    }
+
     /**
      * Reads a text file from the raw resources folder and extracts unique lines into a set of strings.
      *

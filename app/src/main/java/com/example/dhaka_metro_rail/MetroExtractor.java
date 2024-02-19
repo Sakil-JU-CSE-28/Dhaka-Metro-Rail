@@ -2,6 +2,7 @@ package com.example.dhaka_metro_rail;
 
 import android.content.Context;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -17,8 +18,18 @@ public class MetroExtractor {
      * @return A set containing unique lines from the text file.
      */
 
-    Metro metro = new Metro();
+    MetroExtractor metroExtractor = new MetroExtractor();
     public Set<String> getMetros(Context context,int resourceId){
-        return metro.getMetros(context,resourceId);
+        return metroExtractor.getMetros(context,resourceId);
+    }
+
+    public List<String> getComments() {
+        return metroExtractor.getComments();
+    }
+
+    public void addComments(String comment) {
+        List<String>comments = metroExtractor.getComments();
+        comments.add(comment);
+        metroExtractor.addComments(comments);
     }
 }
