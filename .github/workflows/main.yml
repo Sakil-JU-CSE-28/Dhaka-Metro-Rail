@@ -19,5 +19,5 @@ jobs:
         distribution: 'adopt'
 
     - name: Build with Gradle
-      run: DhakaMetroRail/gradlew.bat test
+      run: ./DhakaMetroRail/gradlew.bat test
       working-directory: DhakaMetroRail/app/src/test/java/com/example/dhaka_metro_rail
