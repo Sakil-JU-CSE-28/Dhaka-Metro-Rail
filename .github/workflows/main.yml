@@ -20,4 +20,4 @@ jobs:
 
     - name: Run Gradle Tests
       working-directory: DhakaMetroRail/app/src/test/java/com/example/dhaka_metro_rail
-      run: gradlew.bat test
+      run: ./gradlew run
