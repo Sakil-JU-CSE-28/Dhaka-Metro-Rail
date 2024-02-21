@@ -60,7 +60,7 @@ public class Station {
     public void setAdjacentNodes(Map<Station, Integer> adjacentNodes) {
         this.adjacentNodes = adjacentNodes;
     }
-    public addComment(String txt){
+    public void addComment(String txt){
         comments.add(txt);
     }
 }
