@@ -18,6 +18,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
-    - name: Build with Gradle
-      run: ./DhakaMetroRail/gradlew.bat test
+    - name: Run Gradle Tests
       working-directory: DhakaMetroRail/app/src/test/java/com/example/dhaka_metro_rail
+      run: |
+        ./gradlew.bat test
