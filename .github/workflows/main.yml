@@ -19,6 +19,7 @@ jobs:
           distribution: 'adopt'
   
      - name: Build Gradle
+       working-directory: DhakaMetroRail
        run: ./gradlew build
 
      - name: upload build artifact
