@@ -18,18 +18,18 @@ public class MetroExtractor {
      * @return A set containing unique lines from the text file.
      */
 
-    MetroExtractor metroExtractor = new MetroExtractor();
+    Metro metro = new Metro();
     public Set<String> getMetros(Context context,int resourceId){
-        return metroExtractor.getMetros(context,resourceId);
+        return metro.getMetros(context,resourceId);
     }
 
     public List<String> getComments() {
-        return metroExtractor.getComments();
+        return metro.getComments();
     }
 
     public void addComments(String comment) {
-        List<String>comments = metroExtractor.getComments();
+        List<String>comments = metro.getComments();
         comments.add(comment);
-        metroExtractor.addComments(comments);
+        metro.setComments(comments);
     }
 }
