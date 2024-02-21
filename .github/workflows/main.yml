@@ -9,17 +9,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+     - name: Checkout code
+       uses: actions/checkout@v4.1.1
 
-    - name: Setup Java JDK
-      uses: actions/setup-java@v4.0.0
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-    - name: Grant execute permission to Gradle wrapper
-      working-directory: DhakaMetroRail/app/src/test/java/com/example/dhaka_metro_rail
-      run: chmod +x ./gradlew
-    - name: Run Gradle Tests
-      working-directory: DhakaMetroRail/app/src/test/java/com/example/dhaka_metro_rail
-      run: ./gradlew BuyTicketUnitTest.java
+     - name: Setup Java JDK
+       uses: actions/setup-java@v4.0.0
+       with:
+          java-version: '17'
+          distribution: 'adopt'
+  
+     - name: Build Gradle
+       run: ./gradlew build
+
+     - name: upload build artifact
+       uses: actions/upload-artifact@v4.3.1
+       with:
+          name: DhakaMetroRail.apk
+          path: app/build/outputs/apk/app-debug.apk
