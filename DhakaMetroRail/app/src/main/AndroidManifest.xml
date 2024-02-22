@@ -13,9 +13,6 @@
         android:theme="@style/Theme.DhakaMetroRail"
         tools:targetApi="31">
         <activity
-            android:name=".UnitTestActivity"
-            android:exported="false" />
-        <activity
             android:name=".ViewMetro"
             android:exported="false" />
         <activity
