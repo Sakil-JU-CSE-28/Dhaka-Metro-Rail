@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toStartOf="@id/btnInDanger"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
-        android:onClick="onOptionClicked"/>
+       />
 
     <Button
         android:id="@+id/btnInDanger"
@@ -47,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginStart="4dp"
-        android:onClick="onOptionClicked"/>
+       />
 
     <!-- Row 2 -->
     <Button
@@ -63,7 +63,7 @@
         app:layout_constraintEnd_toStartOf="@id/btnViewStations"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
-        android:onClick="onOptionClicked"/>
+       />
 
     <Button
         android:id="@+id/btnViewStations"
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginStart="4dp"
-        android:onClick="onOptionClicked"/>
+        />
 
     <!-- Row 3 -->
     <Button
@@ -94,7 +94,7 @@
         app:layout_constraintEnd_toStartOf="@id/btnMinCost"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
-        android:onClick="onOptionClicked"/>
+        />
 
     <Button
         android:id="@+id/btnMinCost"
@@ -109,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginStart="4dp"
-        android:onClick="onOptionClicked"/>
+        />
 
     <!-- Row 4 -->
     <Button
@@ -125,7 +125,7 @@
         app:layout_constraintEnd_toStartOf="@id/btnLogIn"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
-        android:onClick="onOptionClicked"/>
+        />
 
     <Button
         android:id="@+id/btnLogIn"
@@ -140,7 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginStart="4dp"
-        android:onClick="onOptionClicked"/>
+        />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="0dp"
