@@ -14,7 +14,7 @@ import android.widget.Toast;
  * This activity allows users to purchase tickets for the metro rail service.
  */
 public class BuyTicket extends AppCompatActivity {
-    private BuyTicketDbController db;
+    public BuyTicketDbController db = new BuyTicketDbController();
     private Spinner spinnerTicketType;
     private Spinner spinnerTicketQuantity;
     private Spinner spinnerStartingStation;
@@ -38,6 +38,7 @@ public class BuyTicket extends AppCompatActivity {
          */
 
         setContentView(R.layout.activity_buy_ticket);
+        db.context = getApplicationContext();
 
         /**
          * this section is for handling event when purchase button is pressed
@@ -61,61 +62,18 @@ public class BuyTicket extends AppCompatActivity {
                 int selectedTicketQuantity = Integer.parseInt(spinnerTicketQuantity.getSelectedItem().toString());
                 String selectedStartingStation = spinnerStartingStation.getSelectedItem().toString();
                 String selectedEndingStation = spinnerEndingStation.getSelectedItem().toString();
-                db = new BuyTicketDbController();
-                db.context = getApplicationContext();
-                db.addTicket(selectedTicketType,selectedTicketQuantity,selectedStartingStation,selectedEndingStation);
-                Toast.makeText(getApplicationContext(), "Purchase successful", Toast.LENGTH_SHORT).show();
+                buyTicket(selectedTicketType,selectedTicketQuantity,selectedStartingStation,selectedEndingStation);
             }
         });
     }
 
 
-    /**
-     * setter methods for the spinner
-     * @param spinnerTicketType
-     */
-    public void setSpinnerTicketType(Spinner spinnerTicketType) {
-        this.spinnerTicketType = spinnerTicketType;
+
+    public long buyTicket(String selectedTicketType,int selectedTicketQuantity,String selectedStartingStation,String selectedEndingStation){
+        long  sign = db.addTicket(selectedTicketType,selectedTicketQuantity,selectedStartingStation,selectedEndingStation);
+        if(sign != -1)
+         Toast.makeText(getApplicationContext(), "Purchase successful", Toast.LENGTH_SHORT).show();
+        return sign;
     }
 
-    public Spinner getSpinnerTicketQuantity() {
-        return spinnerTicketQuantity;
-    }
-
-    public void setSpinnerTicketQuantity(Spinner spinnerTicketQuantity) {
-        this.spinnerTicketQuantity = spinnerTicketQuantity;
-    }
-
-    public Spinner getSpinnerStartingStation() {
-        return spinnerStartingStation;
-    }
-
-    public void setSpinnerStartingStation(Spinner spinnerStartingStation) {
-        this.spinnerStartingStation = spinnerStartingStation;
-    }
-
-    public Spinner getSpinnerEndingStation() {
-        return spinnerEndingStation;
-    }
-
-    public void setSpinnerEndingStation(Spinner spinnerEndingStation) {
-        this.spinnerEndingStation = spinnerEndingStation;
-    }
-
-    /**
-     * getter method for the spinner
-     * @return
-     */
-    public Spinner getSelectedTicketType() {
-        return spinnerTicketType;
-    }
-   public Spinner getSelectedTicketQuantity(){
-        return spinnerTicketQuantity;
-   }
-    public Spinner getSelectedStartingStation(){
-        return spinnerStartingStation;
-    }
-    public Spinner getSelectedEndingStation(){
-        return spinnerEndingStation;
-    }
 }
