@@ -14,6 +14,9 @@ of the app is -
 Here i assume that all station of dhaka metro are working and use some famous data structure and algorithm to solve this 
 problem. I developed the appliction in android studio with java programming language.
 
+# Documentation ( Using javadoc )
+[ documentation of the app ]( https://sakil-ju-cse-28.github.io/Dhaka-Metro-Rail-Documentation/com/example/dhaka_metro_rail/package-summary.html )
+
 # How to contribute on this project ( Only Colaborator )
 1. Clone the project into your local machine
 2. Add a branch with understandable name
