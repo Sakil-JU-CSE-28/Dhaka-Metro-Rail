@@ -3,7 +3,7 @@ name: Auto Merge Login Branch
 on:
   push:
     branches:
-      - Login
+      - login
 
 jobs:
   merge_login_branch:
