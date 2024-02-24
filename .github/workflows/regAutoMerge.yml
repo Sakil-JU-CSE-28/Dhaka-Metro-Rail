@@ -1,0 +1,22 @@
+name: Auto Merge Reg Branch
+
+on:
+  push:
+    branches:
+      - Reg
+
+jobs:
+  merge_Reg_branch:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Merge reg branch into main
+        run: |
+          git config user.name "wasif"
+          git config user.email "wasif.stu20181@juniv.edu"
+          git checkout main
+          git merge --no-ff Reg
+          git push origin main
