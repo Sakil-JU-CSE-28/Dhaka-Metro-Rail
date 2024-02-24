@@ -1,0 +1,22 @@
+name: Auto Merge Login Branch
+
+on:
+  push:
+    branches:
+      - login
+
+jobs:
+  merge_login_branch:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Merge login branch into main
+        run: |
+          git config user.name "liton"
+          git config user.email "jucse28.365@gmail.com"
+          git checkout main
+          git merge --no-ff login
+          git push origin main
