@@ -8,7 +8,7 @@ import org.junit.Test;
 public class InDangerUnitTest {
 
     public void InDangerTest1(){
-        InDangerController inDangerController = new InDangerController(this);
+        InDangerController inDangerController = new InDangerController();
 
         try {
             inDangerController.makePhoneCall("999");

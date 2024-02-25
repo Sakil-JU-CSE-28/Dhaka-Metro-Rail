@@ -16,8 +16,8 @@ public class InDangerController {
 
     private Context context;
 
-    public InDangerController(Context context) {
-        this.context = context;
+    public InDangerController() {
+
     }
 
     public void makePhoneCall(String phoneNumber) {
