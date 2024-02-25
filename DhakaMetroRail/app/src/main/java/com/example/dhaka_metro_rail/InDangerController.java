@@ -20,9 +20,9 @@ public class InDangerController extends AppCompatActivity {
     private static final int REQUEST_CALL_PERMISSION = 1;
     public void makePhoneCall() {
         String phoneNumber = "999";
-        if (ContextCompat.checkSelfPermission(PhoneCallActivity.this,
+        if (ContextCompat.checkSelfPermission(InDangerController.this,
                 Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(PhoneCallActivity.this,
+            ActivityCompat.requestPermissions(InDangerController.this,
                     new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL_PERMISSION);
         } else {
             String dial = "tel:" + phoneNumber;
@@ -41,7 +41,7 @@ public class InDangerController extends AppCompatActivity {
         }
     }
     public void savedCaller(String user,String time){
-        InDangerModel inDangerModel;
+        InDangerModel inDangerModel = new InDangerModel();
         inDangerModel.setCaller(user);
         inDangerModel.setCallTime(time);
     }
