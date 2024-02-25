@@ -11,7 +11,12 @@ public class LogInUnitTest {
 
      public void testCaseOneLogIn(){
          LogInController logInController = new LogInController();
-         logInController.isValid("12345","liton");
+         if(logInController.isValid("12345","liton")){
+             throw new AssertionError("Test-1 Passed");
+         }
+         else{
+             throw new AssertionError("Test-1 Failed");
+         }
      }
 
 }

@@ -10,6 +10,9 @@ public class RegModel {
     private String userName;
     private String password;
 
+    public RegModel() {
+    }
+
     public RegModel(String name, String address, String userName, String password) {
         this.name = name;
         this.address = address;

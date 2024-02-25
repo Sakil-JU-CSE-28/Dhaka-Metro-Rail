@@ -12,6 +12,17 @@ public class RegUnitTest {
         String pass = "123";
         RegController regController = new RegController();
         regController.regUser(name,add,userName,pass);
+        RegModel regModel = new RegModel();
+        String extractName = regModel.getName();
+        String extractAddress = regModel.getAddress();
+        String extractUserName = regModel.getUserName();
+        String extractPass = regModel.getPassword();
+        if(extractUserName.equals(userName) && extractPass.equals(pass)){
+            throw new AssertionError("Test-1 Passed");
+        }
+        else{
+            throw new AssertionError("Test-1 Failed");
+        }
     }
 
 }
