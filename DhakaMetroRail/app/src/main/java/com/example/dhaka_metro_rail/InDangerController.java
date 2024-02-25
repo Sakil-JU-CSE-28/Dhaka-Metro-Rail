@@ -34,8 +34,7 @@ public class InDangerController {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == REQUEST_CALL_PERMISSION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, make the call again
-                makePhoneCall(phoneNumber);
+                makePhoneCall("999");
             } else {
                 Toast.makeText(context, "Permission DENIED", Toast.LENGTH_SHORT).show();
             }
