@@ -1,0 +1,22 @@
+name: Auto Merge Login Branch
+
+on:
+  push:
+    branches:
+      - ViewProfile
+
+jobs:
+  merge_ViewProfile_branch:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Merge ViewProfile branch into main
+        run: |
+          git config user.name "sagor"
+          git config user.email "sagor.stu20182@juniv.edu"
+          git checkout main
+          git merge --no-ff ViewProfile
+          git push origin main
