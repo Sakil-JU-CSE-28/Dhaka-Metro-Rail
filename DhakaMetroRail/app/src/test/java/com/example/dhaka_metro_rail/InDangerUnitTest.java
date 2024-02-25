@@ -9,11 +9,14 @@ public class InDangerUnitTest {
 
     public void InDangerTest1(){
         InDangerController inDangerController = new InDangerController(this);
-        if(inDangerController.makePhoneCall("999")){
+
+        try {
+            inDangerController.makePhoneCall("999");
+            // If the method call does not throw an exception, the test passed
             throw new AssertionError("Test-1 Passed");
-        }
-        else{
-            throw new AssertionError("Test-1 Failed");
+        } catch (SecurityException e) {
+            // If a SecurityException is caught, it indicates the test failed
+            throw new AssertionError("Test-1 Failed: SecurityException caught");
         }
     }
 }
