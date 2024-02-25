@@ -9,7 +9,7 @@ public class InDangerUnitTest {
 
     public void InDangerTest1(){
         InDangerController inDangerController = new InDangerController(this);
-        if(inDangerController.makePhoneCall()){
+        if(inDangerController.makePhoneCall("999")){
             throw new AssertionError("Test-1 Passed");
         }
         else{
