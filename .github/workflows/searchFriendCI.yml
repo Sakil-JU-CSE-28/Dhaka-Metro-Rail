@@ -6,7 +6,7 @@ on:
       - SearchFriend
 
 jobs:
-  merge_login_branch:
+  merge_searchfriend_branch:
     runs-on: ubuntu-latest
     
     steps:
