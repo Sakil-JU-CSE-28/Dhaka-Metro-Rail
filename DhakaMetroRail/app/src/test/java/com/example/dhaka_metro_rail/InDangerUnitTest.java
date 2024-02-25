@@ -12,7 +12,7 @@ public class InDangerUnitTest {
         inDangerController.makePhoneCall();
 
         inDangerController.savedCaller("anik","25-02-2024");
-        InDangerModel inDangerModel;
+        InDangerModel inDangerModel = InDangerModel();
         if(inDangerModel.getCaller().equals("anik") && inDangerModel.getCallTime().equals("25-02-2024")){
             throw new AssertionError("Test-1 Passed");
         }
