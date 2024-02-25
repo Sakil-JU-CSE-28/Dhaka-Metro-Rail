@@ -8,7 +8,7 @@ import org.junit.Test;
 public class InDangerUnitTest {
 
     public void InDangerTest1(){
-        InDangerController inDangerController = new InDangerController();
+        InDangerController inDangerController = new InDangerController(this);
         if(inDangerController.makePhoneCall()){
             throw new AssertionError("Test-1 Passed");
         }
