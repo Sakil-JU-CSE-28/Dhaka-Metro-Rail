@@ -41,7 +41,7 @@ public class InDangerController extends AppCompatActivity {
         }
     }
     public void savedCaller(String user,String time){
-        InDangerModel inDangerModel = new InDangerModel();
+        InDangerModel inDangerModel;
         inDangerModel.setCaller(user);
         inDangerModel.setCallTime(time);
     }
