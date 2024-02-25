@@ -14,5 +14,19 @@ public class SearchFriendUnitTest {
 
     public void testOneOfSearchFriend(){
         SearchFriendController searchFriendController = new SearchFriendController();
+        Set<String> namesSet = new HashSet<>();
+        namesSet.add("Alice");
+        namesSet.add("Bob");
+        namesSet.add("Charlie");
+        namesSet.add("David");
+        namesSet.add("Eve");
+
+        Set<SearchFriendModel> extracted = searchFriendController.friendInThisMetro("23.27");
+        if(extracted.size() < namesSet.size()){
+            throw new AssertionError("Test-1 Passed");
+        }
+        else{
+            throw new AssertionError("Test-1 failed");
+        }
     }
 }
