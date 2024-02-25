@@ -7,6 +7,9 @@ public class InDangerModel {
     private String caller;
     private String callTime;
 
+    public InDangerModel() {
+    }
+
     public String getCaller() {
         return caller;
     }
