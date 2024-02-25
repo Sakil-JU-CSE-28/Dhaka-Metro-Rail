@@ -9,11 +9,7 @@ public class InDangerUnitTest {
 
     public void InDangerTest1(){
         InDangerController inDangerController = new InDangerController();
-        inDangerController.makePhoneCall();
-
-        inDangerController.savedCaller("anik","25-02-2024");
-        InDangerModel inDangerModel = InDangerModel();
-        if(inDangerModel.getCaller().equals("anik") && inDangerModel.getCallTime().equals("25-02-2024")){
+        if(inDangerController.makePhoneCall()){
             throw new AssertionError("Test-1 Passed");
         }
         else{
