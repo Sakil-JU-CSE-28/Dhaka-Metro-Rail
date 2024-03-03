@@ -5,6 +5,7 @@ package com.example.dhaka_metro_rail;
  * feature where user can view his/her profile
  * information , can change password etc.
  */
+@test
 public class ViewProfileUnitTest {
 
     /**
@@ -13,7 +14,7 @@ public class ViewProfileUnitTest {
      */
     public void testOneOfGetProfile(){
         ViewProfileController viewProfileController = new ViewProfileController();
-        ProfileModel profile = viewProfileController.getProfile("sagor","1234");
+        ProfileModel profile = viewProfileController.getProfile("anik","1234");
         if(profile.getUserName().equals("sagor") && profile.getPassword().equals("1234")){
             throw new AssertionError("Test-1 Passed");
         }
