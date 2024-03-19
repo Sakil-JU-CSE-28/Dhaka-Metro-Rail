@@ -1,3 +1,12 @@
+# How to use our app
+
+Till now, we have not made our app available on any app sharing platform. If you want to use our app, you need to:
+
+    * Download the project
+    * Open it in Android Studio
+    * Run and use it.
+    
+
 *This project is for learning software Quality Assurance with hands-on experience.*
 
 It's a team work and we follow Agile technique to do the project. All the necessary information related to this project is
