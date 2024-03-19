@@ -8,13 +8,7 @@ Till now, we have not made our app available on any app sharing platform. If you
     
 # Our vision
 
-For commuter's,
-Who travell across Dhaka city using metro rail,
-DhakaMetro is a software application,
-That solved common pain points of commuter's, 
-Unlike other existing app's our system has some extra brand new feature,
-Our product provide user's an eye soothing interface that can lessen almost
-            every problem of the commuter. We solved the problem as a commuter.
+For commuters, who travel across Dhaka city using the metro rail, DhakaMetro is a software application, that solves common pain points. Unlike other existing apps, our system has some brand new features. Our product provides users with an eye-soothing interface that can alleviate almost every problem of the commuter. We solved the problem as commuters ourselves.
 
 
 *This project is for learning software Quality Assurance with hands-on experience.*
