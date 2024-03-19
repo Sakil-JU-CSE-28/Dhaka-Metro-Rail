@@ -6,6 +6,16 @@ Till now, we have not made our app available on any app sharing platform. If you
     * Open it in Android Studio
     * Run and use it.
     
+# Our vision
+
+For commuter's,
+Who travell across Dhaka city using metro rail,
+DhakaMetro is a software application,
+That solved common pain points of commuter's, 
+Unlike other existing app's our system has some extra brand new feature,
+Our product provide user's an eye soothing interface that can lessen almost
+            every problem of the commuter. We solved the problem as a commuter.
+
 
 *This project is for learning software Quality Assurance with hands-on experience.*
 
